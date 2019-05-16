@@ -5,6 +5,7 @@ import { PagesComponent } from './pages.component';
 import { ProductComponent } from './product/product.component';
 import { Routes, RouterModule } from '@angular/router';
 
+
 const routes: Routes = [
   {
     path: "",
