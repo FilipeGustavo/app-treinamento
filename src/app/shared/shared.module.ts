@@ -40,6 +40,7 @@ import {
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './component/menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [MenuComponent],
@@ -82,7 +83,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    LayoutModule
+    LayoutModule,
+    RouterModule
   ],
   exports: [
     FormsModule,
@@ -122,7 +124,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    MenuComponent
+    MenuComponent,
+    LayoutModule,
+    RouterModule
   ]
 })
 export class SharedModule { }

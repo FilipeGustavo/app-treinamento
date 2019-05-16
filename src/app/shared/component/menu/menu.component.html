@@ -15,12 +15,14 @@
         type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+        (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>app-treinamento</span>
     </mat-toolbar>
+    <div style="padding:10px;">
+      <router-outlet></router-outlet>
+    </div>
     <!-- Add Content Here -->
   </mat-sidenav-content>
 </mat-sidenav-container>
