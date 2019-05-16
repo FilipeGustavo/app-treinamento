@@ -4,6 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import { PagesComponent } from './pages.component';
 import { Routes, RouterModule } from '@angular/router';
 
+
 const routes: Routes = [
   { path: "", loadChildren: "src/app/pages/product/product.module#ProductModule" }
 ];
