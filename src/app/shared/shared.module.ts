@@ -37,9 +37,7 @@ import {
   MatTooltipModule,
   MatTreeModule
 } from '@angular/material';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuComponent } from './component/menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 
@@ -47,10 +45,8 @@ import { LayoutModule } from '@angular/cdk/layout';
   declarations: [MenuComponent],
   imports: [
     CommonModule,
-    BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -89,10 +85,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     LayoutModule
   ],
   exports: [
-    BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
