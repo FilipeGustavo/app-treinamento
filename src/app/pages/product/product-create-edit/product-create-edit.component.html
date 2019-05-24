@@ -1,3 +1,51 @@
 <p>
-  product-create-edit works!
+  <ngb-alert [type]="alert.type" [hidden]="alert.hide">
+    {{alert.message}}<mat-icon>{{alert.icon}}</mat-icon> 
+  </ngb-alert>
 </p>
+
+<mat-card>
+  <div class="row" *ngIf="newProduct">
+    <h5 >Novo Produto</h5><mat-icon>insert_drive_file</mat-icon>
+  </div>
+  <div class="row" *ngIf="!newProduct">
+      <h5 >Editar Produto</h5><mat-icon>edit</mat-icon>
+    </div>
+  <div>
+    <form class="create-edit-Produto-container" [formGroup]="createEditProdutoFormGroup"
+      (ngSubmit)="saveProduct(createEditProdutoFormGroup)">
+      <div class="row">
+        <mat-form-field [hidden]="true" class="col-sm-4">
+          <input matInput placeholder="Código" formControlName="id" name="id">
+        </mat-form-field>
+        <mat-form-field class="col-sm-4">
+          <input matInput placeholder="Nome" formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="col-sm-4">
+          <input matInput placeholder="Descrição" formControlName="description">
+        </mat-form-field>
+        <mat-form-field class="col-sm-4">
+          <input currencyMask  matInput placeholder="Preço" formControlName="price">
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col-sm-4">
+          <input matInput placeholder="expirationDate" formControlName="expirationDate">
+        </mat-form-field>
+        <mat-form-field class="col-sm-6">
+          <mat-select placeholder="Categoria" formControlName="category">
+            <mat-option value="">Selecione</mat-option>
+            <mat-option value="1">Tipo 1</mat-option>
+            <mat-option value="2">Tipo 2</mat-option>
+            <mat-option value="3">Tipo 3</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <button id="btnSalvarProduto" type="submit" class="btn btn-outline-success">Salvar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</mat-card>

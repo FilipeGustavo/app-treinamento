@@ -41,9 +41,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './component/menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { RouterModule } from '@angular/router';
+import { ModalComponent } from './component/modal/modal.component';
+import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { CurrencyMaskModule } from "ng2-currency-mask";
+import { NgxCpfCnpjModule } from  'ngx-cpf-cnpj';
 
 @NgModule({
-  declarations: [MenuComponent],
+  declarations: [MenuComponent, ModalComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -84,7 +88,10 @@ import { RouterModule } from '@angular/router';
     MatTooltipModule,
     MatTreeModule,
     LayoutModule,
-    RouterModule
+    RouterModule,
+    NgbAlertModule,
+    CurrencyMaskModule,
+    NgxCpfCnpjModule
   ],
   exports: [
     FormsModule,
@@ -126,7 +133,12 @@ import { RouterModule } from '@angular/router';
     MatTreeModule,
     MenuComponent,
     LayoutModule,
-    RouterModule
-  ]
+    RouterModule,
+    ModalComponent,
+    NgbAlertModule,
+    CurrencyMaskModule,
+    NgxCpfCnpjModule
+  ],
+  entryComponents: [ModalComponent]
 })
 export class SharedModule { }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductCreateEditComponent } from './product-create-edit/product-create-edit.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { Routes, RouterModule } from '@angular/router';
+import { SharedModule } from '@shared/shared.module';
 
 const routes: Routes = [
   { path: "product/create", component: ProductCreateEditComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   declarations: [ProductCreateEditComponent, ProductListComponent],
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule.forChild(routes)
   ]
 })
