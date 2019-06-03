@@ -3,6 +3,7 @@ import { ProductService } from '@shared/service/product.service';
 import { FormGroup, FormBuilder, NgForm, NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ErrordialofService } from '@shared/service/errordialof.service';
 
 interface IAlert {
   hide?: boolean,
@@ -23,7 +24,7 @@ export class ProductCreateEditComponent implements OnInit {
   @ViewChild('closeModal') closeModal: ElementRef
   createEditProdutoFormGroup: FormGroup;
 
-  constructor(private router: Router, private route: ActivatedRoute, private service: ProductService, private formBuilder: FormBuilder, public dialog: MatDialog) { }
+  constructor(private router: Router, private route: ActivatedRoute, private service: ProductService, private formBuilder: FormBuilder, public dialog: MatDialog, private serviceError: ErrordialofService) { }
 
   public alert: IAlert = {
     message: "Incluído com secesso!",
@@ -52,17 +53,18 @@ export class ProductCreateEditComponent implements OnInit {
   }
 
   saveProduct(form: NgForm) {
-    if (form.value.id != null && form.value.id != 0) {
-      this.alert.message = "Alterações realizado com sucesso";
+    if (form.value.id !== null && form.value.id !== 0) {
+      this.alert.message = 'Alterações realizado com sucesso';
     }
     this.service.save(form.value).subscribe(
       res => {
         console.log(form);
         console.log(res);
-        //Voltar e concluir modal.
-        //this.dialog.open(ModalComponent);
+         // Voltar e concluir modal.
+        // this.dialog.open(ModalComponent);
+        this.serviceError.openDiaLog(res);
         this.alert.hide = !this.alert.hide;
-        setTimeout(() => this.router.navigate(["/product"]), 2000);
+        setTimeout(() => this.router.navigate(['/product']), 2000);
       }, (err) => {
         console.log(err);
       }

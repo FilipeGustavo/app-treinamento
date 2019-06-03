@@ -43,12 +43,18 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { RouterModule } from '@angular/router';
 import { ModalComponent } from './component/modal/modal.component';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
-import { CurrencyMaskModule } from "ng2-currency-mask";
-import { NgxCpfCnpjModule } from  'ngx-cpf-cnpj';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { NgxCpfCnpjModule } from 'ngx-cpf-cnpj';
+import {DpDatePickerModule} from 'ng2-date-picker';
+import {NgxMaskModule, IConfig} from 'ngx-mask';
+import { ErrordialogComponent } from './component/errordialog/errordialog.component';
+
+export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
 @NgModule({
-  declarations: [MenuComponent, ModalComponent],
+  declarations: [MenuComponent, ModalComponent, ErrordialogComponent],
   imports: [
+    NgxMaskModule.forRoot(options),
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -91,9 +97,11 @@ import { NgxCpfCnpjModule } from  'ngx-cpf-cnpj';
     RouterModule,
     NgbAlertModule,
     CurrencyMaskModule,
-    NgxCpfCnpjModule
+    NgxCpfCnpjModule,
+    DpDatePickerModule
   ],
   exports: [
+    NgxMaskModule,
     FormsModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
@@ -137,8 +145,9 @@ import { NgxCpfCnpjModule } from  'ngx-cpf-cnpj';
     ModalComponent,
     NgbAlertModule,
     CurrencyMaskModule,
-    NgxCpfCnpjModule
+    NgxCpfCnpjModule,
+    DpDatePickerModule
   ],
-  entryComponents: [ModalComponent]
+  entryComponents: [ModalComponent, ErrordialogComponent]
 })
 export class SharedModule { }

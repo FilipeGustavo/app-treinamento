@@ -6,9 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
 
 const routes: Routes = [
-  { path: "product/create", component: ProductCreateEditComponent },
-  { path: "product/edit", component: ProductCreateEditComponent },
-  { path: "product", component: ProductListComponent }
+  { path: 'product/create', component: ProductCreateEditComponent },
+  { path: 'product/edit', component: ProductCreateEditComponent },
+  { path: 'product', component: ProductListComponent }
 ];
 
 @NgModule({
