@@ -4,6 +4,6 @@ export class Product extends BaseModel {
     name: string;
     description: string;
     price: number;
-    expirationDate: Date;
-    category: Array<string>;
+    expirationDate: string;
+    category: string;
 }

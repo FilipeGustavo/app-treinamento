@@ -41,10 +41,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuComponent } from './component/menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { RouterModule } from '@angular/router';
+import { ModalComponent } from './component/modal/modal.component';
+import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { NgxCpfCnpjModule } from 'ngx-cpf-cnpj';
+import {DpDatePickerModule} from 'ng2-date-picker';
+import {NgxMaskModule, IConfig} from 'ngx-mask';
+import { ErrordialogComponent } from './component/errordialog/errordialog.component';
+
+export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
 @NgModule({
-  declarations: [MenuComponent],
+  declarations: [MenuComponent, ModalComponent, ErrordialogComponent],
   imports: [
+    NgxMaskModule.forRoot(options),
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -84,9 +94,14 @@ import { RouterModule } from '@angular/router';
     MatTooltipModule,
     MatTreeModule,
     LayoutModule,
-    RouterModule
+    RouterModule,
+    NgbAlertModule,
+    CurrencyMaskModule,
+    NgxCpfCnpjModule,
+    DpDatePickerModule
   ],
   exports: [
+    NgxMaskModule,
     FormsModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
@@ -126,7 +141,13 @@ import { RouterModule } from '@angular/router';
     MatTreeModule,
     MenuComponent,
     LayoutModule,
-    RouterModule
-  ]
+    RouterModule,
+    ModalComponent,
+    NgbAlertModule,
+    CurrencyMaskModule,
+    NgxCpfCnpjModule,
+    DpDatePickerModule
+  ],
+  entryComponents: [ModalComponent, ErrordialogComponent]
 })
 export class SharedModule { }
